@@ -6,10 +6,10 @@ class Settings:
         # Screen settings
         self.screen_width = 1200
         self.screen_height = 800
-        self.bg_color = 'red'
+        self.bg_color = 'black'
 
         # Racket settings
-        self.racket_speed = 2.0
+        self.racket_speed = 20.0
         self.racket_width = 30
         self.racket_height = 150
         self.racket_color = 'white'
