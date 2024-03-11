@@ -13,3 +13,8 @@ class Settings:
         self.racket_width = 30
         self.racket_height = 150
         self.racket_color = 'white'
+
+        # Ball settings
+        self.ball_hor_speed = 10.0
+        self.ball_size = 30
+        self.ball_color = 'white'

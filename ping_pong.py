@@ -4,6 +4,7 @@ import pygame
 
 from settings import Settings
 from racket import Racket
+from ball import Ball
 
 class PingPong:
     """Overall class to manage game assets and behavior."""
@@ -20,12 +21,14 @@ class PingPong:
         pygame.display.set_caption("Ping-Pong")
 
         self.racket = Racket(self)
+        self.ball = Ball(self)
 
     def run_game(self):
         """Start the main loop for the game."""
         while True:
             self._check_events()
             self.racket.update()
+            self.ball.update()
             self._update_screen()
             self.clock.tick(60)
 
@@ -59,6 +62,7 @@ class PingPong:
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.settings.bg_color)
         self.racket.draw_racket()
+        self.ball.draw_ball()
 
         pygame.display.flip()
 

@@ -1,7 +1,7 @@
 import pygame
 
 class Racket:
-    """A class to manage the racket."""
+    """A class to manage a racket."""
 
     def __init__(self, pp_game):
         """Initialize the racket and set its starting position."""
