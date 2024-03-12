@@ -8,6 +8,7 @@ from racket import Racket
 from ball import Ball
 from score import Score
 from button import Button
+from overlay import Overlay
 
 class PingPong:
     """Overall class to manage game assets and behavior."""
@@ -29,6 +30,7 @@ class PingPong:
 
         self.ball = Ball(self)
         self.score = Score(self)
+        self.overlay = Overlay(self, self.score.score, self.ball.hor_speed)
 
         # Start Ping-Pong in an inactive state.
         self.game_active = False
@@ -155,6 +157,8 @@ class PingPong:
         # Draw the play button if the game is inactive.
         if not self.game_active:
             self.play_button.draw_button()
+
+        self.screen.blit(self.overlay.overlay_surface, (300, 200))
 
         pygame.display.flip()
 
