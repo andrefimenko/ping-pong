@@ -6,7 +6,6 @@ import pygame
 from settings import Settings
 from racket import Racket
 from ball import Ball
-from score import Score
 from button import Button
 from overlay import Overlay
 
@@ -29,8 +28,8 @@ class PingPong:
         self.p2_racket = Racket(self, 2)
 
         self.ball = Ball(self)
-        self.score = Score(self)
-        self.overlay = Overlay(self, self.score.score, self.ball.hor_speed)
+        self.score = [0, 0]
+        self.overlay = Overlay(self)
 
         # Start Ping-Pong in an inactive state.
         self.game_active = False
@@ -46,6 +45,7 @@ class PingPong:
             if self.game_active:
                 self._update_rackets()
                 self._update_ball()
+                # self._update_score()
 
             self._update_screen()
             self.clock.tick(60)
@@ -133,12 +133,13 @@ class PingPong:
     def _goal(self, player):
         """Scores the game and restarts round with opposite ball direction."""
         if player == 1:
-            self.score.score[0] += 1
-            print(self.score.score)
+            self.score[0] += 1
+            print(self.score)
         if player == 2:
-            self.score.score[1] += 1
-            print(self.score.score)
+            self.score[1] += 1
+            print(self.score)
 
+        self.overlay.draw_score()
         self.ball.hor_speed *= -1
         self._center_ball()
 
@@ -150,6 +151,7 @@ class PingPong:
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.settings.bg_color)
+        self.overlay.draw_score()
         self.p1_racket.draw_racket()
         self.p2_racket.draw_racket()
         self.ball.draw_ball()
@@ -158,7 +160,8 @@ class PingPong:
         if not self.game_active:
             self.play_button.draw_button()
 
-        self.screen.blit(self.overlay.overlay_surface, (300, 200))
+        # self.screen.blit(self.overlay.transparent_surface, (600, 0))
+        # self.overlay.draw_score()
 
         pygame.display.flip()
 
