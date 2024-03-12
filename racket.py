@@ -16,7 +16,7 @@ class Racket:
                                 self.settings.racket_height)
         if owner == 1:
             self.rect.midleft = pp_game.screen.get_rect().midleft
-        else:
+        if owner == 2:
             self.rect.midright = pp_game.screen.get_rect().midright
 
         # Movement flags; start with a racket that's not moving.
@@ -32,6 +32,10 @@ class Racket:
             self.rect.y -= self.settings.racket_speed
         if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.rect.y += self.settings.racket_speed
+
+    def center_racket(self):
+        """Center rackets on the screen."""
+        self.rect.center = self.screen_rect.y / 2
 
     def draw_racket(self):
         """Draw the p1_racket at its current location."""

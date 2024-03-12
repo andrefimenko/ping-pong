@@ -10,12 +10,14 @@ class Settings:
 
         # Racket settings
         self.racket_speed = 20.0
+        self.racket_spin = 4
+        self.racket_speed_up = 1
         self.racket_width = 30
         self.racket_height = 150
         self.racket_color = 'white'
 
         # Ball settings
         self.ball_hor_speed = 10.0
-        self.ball_vert_speed = 5
+        self.ball_vert_speed = 0
         self.ball_size = 30
         self.ball_color = 'white'
