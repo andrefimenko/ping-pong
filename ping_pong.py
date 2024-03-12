@@ -28,7 +28,8 @@ class PingPong:
         while True:
             self._check_events()
             self.racket.update()
-            self.ball.update()
+            self._update_ball()
+
             self._update_screen()
             self.clock.tick(60)
 
@@ -48,7 +49,7 @@ class PingPong:
             self.racket.moving_up = True
         elif event.key == pygame.K_DOWN:
             self.racket.moving_down = True
-        elif event.key == pygame.K_q:
+        elif event.key == pygame.K_q or event.key == pygame.K_ESCAPE:
             sys.exit()
 
     def _check_keyup_events(self, event):
@@ -57,6 +58,12 @@ class PingPong:
             self.racket.moving_up = False
         elif event.key == pygame.K_DOWN:
             self.racket.moving_down = False
+
+    def _update_ball(self):
+
+        if self.ball.rect.colliderect(self.racket.rect):
+            self.ball.hor_speed *= -1
+        self.ball.update()
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""

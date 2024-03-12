@@ -16,5 +16,6 @@ class Settings:
 
         # Ball settings
         self.ball_hor_speed = 10.0
+        self.ball_vert_speed = 5
         self.ball_size = 30
         self.ball_color = 'white'
