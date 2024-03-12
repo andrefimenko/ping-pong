@@ -11,7 +11,7 @@ class Settings:
         # Racket settings
         self.racket_speed = 20.0
         self.racket_spin = 4
-        self.racket_speed_up = 1
+        self.racket_speed_up = 4
         self.racket_width = 30
         self.racket_height = 150
         self.racket_color = 'white'
