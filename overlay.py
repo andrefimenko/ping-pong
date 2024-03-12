@@ -17,11 +17,11 @@ class Overlay:
         transparent_surface = pygame.Surface((self.screen.get_rect().width, self.screen.get_rect().height),
                                              pygame.SRCALPHA)
         rect = transparent_surface.get_rect()
-        transparent_surface.fill((0, 0, 0, 255))
+        transparent_surface.fill((0, 0, 0, 0))
 
         # self.screen.fill('black', rect)
 
-        font = pygame.font.Font(None, 36)
+        font = pygame.font.SysFont(None, 56)
         text = font.render(f"{self.score[0]} : {self.score[1]}", True, (255, 255, 255))
         transparent_surface.blit(text, (560, 20))
 

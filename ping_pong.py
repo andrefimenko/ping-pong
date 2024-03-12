@@ -151,7 +151,7 @@ class PingPong:
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.settings.bg_color)
-        self.overlay.draw_score()
+        # self.overlay.draw_score()
         self.p1_racket.draw_racket()
         self.p2_racket.draw_racket()
         self.ball.draw_ball()
@@ -161,7 +161,7 @@ class PingPong:
             self.play_button.draw_button()
 
         # self.screen.blit(self.overlay.transparent_surface, (600, 0))
-        # self.overlay.draw_score()
+        self.overlay.draw_score()
 
         pygame.display.flip()
 
