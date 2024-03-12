@@ -1,5 +1,4 @@
 import sys
-import time
 
 import pygame
 
@@ -45,7 +44,6 @@ class PingPong:
             if self.game_active:
                 self._update_rackets()
                 self._update_ball()
-                # self._update_score()
 
             self._update_screen()
             self.clock.tick(60)
@@ -70,11 +68,11 @@ class PingPong:
 
     def _check_keydown_events(self, event):
         """Respond to keypresses."""
-        if event.key == pygame.K_w:
+        if event.key == pygame.K_a:
             self.p1_racket.moving_up = True
         elif event.key == pygame.K_UP:
             self.p2_racket.moving_up = True
-        elif event.key == pygame.K_s:
+        elif event.key == pygame.K_z:
             self.p1_racket.moving_down = True
         elif event.key == pygame.K_DOWN:
             self.p2_racket.moving_down = True
@@ -83,11 +81,11 @@ class PingPong:
 
     def _check_keyup_events(self, event):
         """Respond to key releases."""
-        if event.key == pygame.K_w:
+        if event.key == pygame.K_a:
             self.p1_racket.moving_up = False
         elif event.key == pygame.K_UP:
             self.p2_racket.moving_up = False
-        elif event.key == pygame.K_s:
+        elif event.key == pygame.K_z:
             self.p1_racket.moving_down = False
         elif event.key == pygame.K_DOWN:
             self.p2_racket.moving_down = False
@@ -152,7 +150,7 @@ class PingPong:
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.settings.bg_color)
-        # self.overlay.draw_score()
+
         self.p1_racket.draw_racket()
         self.p2_racket.draw_racket()
         self.ball.draw_ball()
@@ -161,7 +159,6 @@ class PingPong:
         if not self.game_active:
             self.play_button.draw_button()
 
-        # self.screen.blit(self.overlay.transparent_surface, (600, 0))
         self.overlay.draw_score()
 
         pygame.display.flip()
