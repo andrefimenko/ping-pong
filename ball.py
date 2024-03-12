@@ -25,10 +25,10 @@ class Ball:
         self.y = float(self.rect.y)
 
     def check_edges(self):
-        """Change direction if ball is at edge of screen or racket."""
+        """Change direction if ball is at edge of screen or p1_racket."""
         screen_rect = self.screen.get_rect()
-        if self.rect.right >= screen_rect.right: # or self.rect.left <= 0:
-            self.hor_speed *= -1
+        # if self.rect.right >= screen_rect.right: # or self.rect.left <= 0:
+        #     self.hor_speed *= -1
         if self.rect.top <= 0 or self.rect.bottom >= screen_rect.bottom:
             self.vert_speed *= -1
 
