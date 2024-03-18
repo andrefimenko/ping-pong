@@ -27,7 +27,7 @@ class Racket:
         self.y = float(self.rect.y)
 
     def update(self):
-        """Update the p1_racket's position based on the movement flags."""
+        """Update the racket's position based on the movement flags."""
         if self.moving_up and self.rect.top > self.screen_rect.top:
             self.rect.y -= self.settings.racket_speed
         if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
