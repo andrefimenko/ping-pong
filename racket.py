@@ -38,6 +38,6 @@ class Racket:
         self.rect.center = self.screen_rect.y / 2
 
     def draw_racket(self):
-        """Draw the p1_racket at its current location."""
+        """Draw the racket at its current location."""
 
         pygame.draw.rect(self.screen, self.color, self.rect)
