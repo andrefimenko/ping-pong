@@ -102,10 +102,10 @@ class PingPong:
         if self.ball.rect.colliderect(self.p1_racket.rect):
             if self.p1_racket.moving_up:
                 self.ball.vert_speed -= self.settings.racket_spin
-                self.ball.hor_speed += self.settings.racket_speed_up
-            if self.p2_racket.moving_down:
+                self.ball.hor_speed += self.settings.racket_speed_up * -1
+            if self.p1_racket.moving_down:
                 self.ball.vert_speed += self.settings.racket_spin
-                self.ball.hor_speed += self.settings.racket_speed_up
+                self.ball.hor_speed += self.settings.racket_speed_up * -1
             self.ball.hor_speed *= -1
 
         # Right racket spins
