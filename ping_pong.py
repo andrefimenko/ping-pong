@@ -138,13 +138,12 @@ class PingPong:
             print(self.score)
 
         self.overlay.draw_score()
-        self.ball.hor_speed *= -1
         self._center_ball()
 
     def _center_ball(self):
         """Centers the ball and resets its vertical speed."""
         self.ball.rect.center = self.screen.get_rect().center
-        self.ball.hor_speed = 10
+        self.ball.hor_speed *= -1
         self.ball.vert_speed = 0
 
     def _update_screen(self):
